@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Question from './Question'
 import QuestionSkeleton from './QuestionSkeleton'
 
@@ -17,29 +17,29 @@ export default function QuestionList() {
 
 
 
-
-
+    const additional_skeleton_list = useRef(null);
+    const loadingSkeletonVisibilityChanger = (cssDisplayType) => {
+        if (additional_skeleton_list.current !== null) {
+            additional_skeleton_list.current.style.display = cssDisplayType;
+        }
+    }
 
 
 
     // ======================================== Fetch More Items with Intersection Observer ========================================
-    const intersection_observer_callback = (entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-
-            }
-        })
-    }
-
-
-    // const readyFor5MoreQuestions = () => {
-    //     const io = new IntersectionObserver(intersection_observer_callback, { rootMargin: "-40px" });
-    //     io.observe(line);
-    // };
-
-
-
-
+    const readyFor5MoreQuestions = (last_question_element) => {
+        const io = new IntersectionObserver( (entries, observer) => {
+            entries.forEach(async (entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(async () => {
+                        setQuestionList(question_list.concat(await fetchQuestion(10)));
+                    }, 500);
+                    observer.disconnect();
+                }
+            })
+        }, { rootMargin: "0px" });
+        io.observe(last_question_element);
+    };
 
 
 
@@ -50,7 +50,7 @@ export default function QuestionList() {
     const [question_list, setQuestionList] = useState(null);
 
     const fetchQuestion = async (amount) => {
-        // const skeletons = [];
+        loadingSkeletonVisibilityChanger("block")
         const response = await fetch(`https://opentdb.com/api.php?amount=${amount}`, { method: "GET" });
         const { results } = await response.json();
         const question_array = results.map((e) => {
@@ -65,15 +65,21 @@ export default function QuestionList() {
         return question_array;
     };
     useEffect(async () => {
-        const question_array = await fetchQuestion(10);
+        const question_array = await fetchQuestion(20);
         setQuestionList(question_array);
+        loadingSkeletonVisibilityChanger("none")
     }, []);
 
-
+    //When question list changes, change observed element
     useEffect(() => {
-    }, [input])
-
-
+        if (question_list != null && question_list.length > 0) {
+            const question_elements = document.querySelectorAll(".question-card");
+            const last_element = question_elements[question_elements.length - 1];
+            if ((last_element !== undefined) && last_element instanceof HTMLDivElement) {
+                readyFor5MoreQuestions(last_element);
+            }
+        }
+    }, [question_list])
 
 
 
@@ -84,8 +90,6 @@ export default function QuestionList() {
 
 
     if (question_list != null && question_list.length > 0) {
-
-
         const question_items = question_list.map((q, i) => {
             return <Question key={i} question={q} />
         })
@@ -93,7 +97,7 @@ export default function QuestionList() {
         return (
             <div className="question-list">
                 {question_items}
-                <div>
+                <div ref={additional_skeleton_list} className="additional-skeleton-list">
                     {skeletonCreator(5)}
                 </div>
             </div>
