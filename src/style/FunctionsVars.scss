@@ -1,0 +1,21 @@
+$dark: #3b14a7;
+$light: #693be8;
+$u-light: #af96f3;
+$yellow: #ffed99;
+
+@mixin animatePathElement {
+  animation-name: strokthis;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  // AnimatingWithObserver
+  animation-play-state: paused;
+}
+@mixin absoluteCentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
