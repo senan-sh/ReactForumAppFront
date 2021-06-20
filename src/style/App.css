@@ -314,6 +314,7 @@ div.sideNavBar ul li.side-nav-list-element:hover {
           transform: translateX(-20px);
   font-family: "Baloo Tammudu 2", cursive;
   font-size: 2rem;
+  text-align: center;
 }
 
 .home-svg-wrapper {
@@ -459,6 +460,7 @@ div.sideNavBar ul li.side-nav-list-element:hover {
   -webkit-transform: translateX(20px);
           transform: translateX(20px);
   font-family: "Baloo Tammudu 2", cursive;
+  text-align: center;
 }
 
 .home-svg-section-reversed h1:nth-of-type(2) {
@@ -1551,6 +1553,7 @@ span.swiper-pagination-progressbar-fill {
 }
 
 .questions-section .questions-page .skeleton-question-card {
+  overflow: hidden;
   position: relative;
   background-color: #4d4d4d;
   border-radius: 3px;
@@ -1639,5 +1642,29 @@ span.swiper-pagination-progressbar-fill {
 .questions-section .questions-page .skeleton-question-card p {
   display: inline-block;
   padding: 0.3rem;
+}
+
+#go_to_top {
+  background-color: #af96f3;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  width: 3rem;
+  height: 3rem;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+  z-index: 3;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+}
+
+.create-question {
+  max-width: 40rem;
+  min-width: 5rem;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 /*# sourceMappingURL=App.css.map */

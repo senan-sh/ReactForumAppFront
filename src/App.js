@@ -11,9 +11,9 @@ import HowTo from "./Components/Guide/HowTo";
 import Questions from "./Components/Questions/Questions";
 import Authorization from './Components/Authorization/Authorization'
 //React-Router
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import Error404 from "./Components/404Page.js/Error404";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function App() {
   let isNavOpen = false;
@@ -42,16 +42,52 @@ export default function App() {
       }
     },
   };
+  const passedData = { progressBarFunctions, navBarFunctions }
 
-  const passedData = {progressBarFunctions,navBarFunctions}
+  // GoToTopFunction
+  const goToPageTop = () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+  const to_top_btn = useRef(null)
+  const changeDisplayOfToTopBtn = (show_boolean) => {
+    if (show_boolean === true) {
+      to_top_btn.current.style.opacity = "1"
+      to_top_btn.current.style.transform = "scale(1)"
+    } else {
+      to_top_btn.current.style.opacity = "0"
+      to_top_btn.current.style.transform = "scale(0)"
+    }
+
+  }
+  const changeToToBtnLogically = () => {
+    if (document.documentElement.scrollTop > 100) {
+      changeDisplayOfToTopBtn(true)
+    } else {
+      changeDisplayOfToTopBtn(false)
+    }
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      changeToToBtnLogically();
+    })
+  }, [])
+
+  useEffect(() => {
+    changeToToBtnLogically();
+  }, [])
 
   return (
     <React.StrictMode >
-      <BrowserRouter >
+      <HashRouter >
         <div onClick={navBarFunctions.closeSideNavBar} className="black-overlay"></div>
         <UpBar functions={(progressBarFunctions, navBarFunctions)} />
         <SideNavBar functions={(progressBarFunctions, navBarFunctions)} />
-
+        <button ref={to_top_btn} onClick={goToPageTop} id="go_to_top">
+          <span class="material-icons-outlined">arrow_upward</span>
+        </button>
         <Switch>
           <Route
             path="/about"
@@ -71,12 +107,12 @@ export default function App() {
               return <Questions functions={passedData} />;
             }}
           />
-            <Route
-              path="/account"
-              render={() => {
-                return <Authorization functions={passedData} />;
-              }}
-            />
+          <Route
+            path="/account"
+            render={() => {
+              return <Authorization functions={passedData} />;
+            }}
+          />
           <Route
             path="/" exact
             render={() => {
@@ -91,7 +127,7 @@ export default function App() {
           />
         </Switch>
         <Footer />
-      </BrowserRouter>
-      </React.StrictMode>
+      </HashRouter>
+    </React.StrictMode>
   );
 }

@@ -1,5 +1,6 @@
 import QuestionList from "./QuestionList/QuestionList";
 import QuestionSortFilter from "./QuestionList/QuestionSortFilter";
+import CreateQuestion from "./QuestionList/CreateQuestion";
 
 export default function Questions() {
 
@@ -9,7 +10,7 @@ export default function Questions() {
             <div className="questions-page">
                 <QuestionSortFilter />
                 <QuestionList />
-                <div className="create-question"></div>
+                <CreateQuestion />
             </div>
         </div >
     );
