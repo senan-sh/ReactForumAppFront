@@ -62,22 +62,56 @@ export default function App() {
     }
 
   }
-  const changeToToBtnLogically = () => {
-    if (document.documentElement.scrollTop > 100) {
+  const changeToToBtnLogically = (scroll_top) => {
+    if (scroll_top > 100) {
       changeDisplayOfToTopBtn(true)
     } else {
       changeDisplayOfToTopBtn(false)
     }
   }
+
+
+  let upBarShowing = true;
+  let scroll_position_y = 0
+  const changeUpBarVisibility = (show) => {
+    const up_bar = document.getElementsByClassName("upBar")[0];
+    if (show === true) {
+      if (upBarShowing === false) {
+        up_bar.style.transform = "translateY(0)"
+        upBarShowing = true;
+      }
+    } else {
+      if (upBarShowing === true) {
+        up_bar.style.transform = "translateY(-100%)"
+        upBarShowing = false;
+      }
+
+    }
+
+  }
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      changeToToBtnLogically();
+      //^ to top Button
+      const scroll_top = document.documentElement.scrollTop;
+      if (to_top_btn !== null) {
+        changeToToBtnLogically(scroll_top);
+      }
+
+      if (scroll_top > scroll_position_y) {
+        if (scroll_top > 100) {
+          changeUpBarVisibility(false)
+        }
+        scroll_position_y = scroll_top
+      } else {
+        changeUpBarVisibility(true)
+        scroll_position_y = scroll_top
+      }
     })
   }, [])
 
-  useEffect(() => {
-    changeToToBtnLogically();
-  }, [])
+  // useEffect(() => {
+  //   changeToToBtnLogically(document.documentElement.scrollTop);
+  // }, [])
 
   return (
     <React.StrictMode >
@@ -86,7 +120,7 @@ export default function App() {
         <UpBar functions={(progressBarFunctions, navBarFunctions)} />
         <SideNavBar functions={(progressBarFunctions, navBarFunctions)} />
         <button ref={to_top_btn} onClick={goToPageTop} id="go_to_top">
-          <span class="material-icons-outlined">arrow_upward</span>
+          <span className="material-icons-outlined">arrow_upward</span>
         </button>
         <Switch>
           <Route

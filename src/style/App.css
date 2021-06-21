@@ -68,6 +68,8 @@ li {
   padding: 10px;
   color: white;
   z-index: 5;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .upBar .introduction {
@@ -1661,10 +1663,6 @@ span.swiper-pagination-progressbar-fill {
 }
 
 .create-question {
-  max-width: 40rem;
-  min-width: 5rem;
-  padding: 10px;
-  border: 1px solid #fff;
-  background-color: rgba(0, 0, 0, 0.75);
+  position: relative;
 }
 /*# sourceMappingURL=App.css.map */
