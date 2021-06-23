@@ -1457,6 +1457,7 @@ span.swiper-pagination-progressbar-fill {
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .questions-section .questions-page .question-sort-filter .questions-sort::before,
@@ -1662,7 +1663,14 @@ span.swiper-pagination-progressbar-fill {
           box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
 }
 
-.create-question {
-  position: relative;
+.create-question .create-question-dialog-inner {
+  display: none;
+  background-color: white;
+  width: 400px;
+  height: 200px;
+}
+
+.create-question .create-question-dialog {
+  display: none !important;
 }
 /*# sourceMappingURL=App.css.map */

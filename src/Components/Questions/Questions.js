@@ -1,6 +1,5 @@
 import QuestionList from "./QuestionList/QuestionList";
-import QuestionSortFilter from "./QuestionList/QuestionSortFilter";
-import CreateQuestion from "./QuestionList/CreateQuestion";
+import QuestionSortFilterCreate from "./QuestionList/QuestionSortFilterCreate";
 
 export default function Questions() {
 
@@ -8,9 +7,8 @@ export default function Questions() {
         <div className="questions-section">
             <h1>Suallar</h1>
             <div className="questions-page">
-                <QuestionSortFilter />
+                <QuestionSortFilterCreate />
                 <QuestionList />
-                <CreateQuestion />
             </div>
         </div >
     );

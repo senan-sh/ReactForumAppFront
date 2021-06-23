@@ -90,7 +90,10 @@ export default function App() {
 
   }
   useEffect(() => {
-    document.addEventListener("scroll", () => {
+    // only once
+    changeToToBtnLogically(false);
+
+    document.onscroll = () => {
       //^ to top Button
       const scroll_top = document.documentElement.scrollTop;
       if (to_top_btn !== null) {
@@ -106,7 +109,7 @@ export default function App() {
         changeUpBarVisibility(true)
         scroll_position_y = scroll_top
       }
-    })
+    }
   }, [])
 
   // useEffect(() => {
@@ -114,8 +117,7 @@ export default function App() {
   // }, [])
 
   return (
-    <React.StrictMode >
-      <HashRouter >
+      <HashRouter>
         <div onClick={navBarFunctions.closeSideNavBar} className="black-overlay"></div>
         <UpBar functions={(progressBarFunctions, navBarFunctions)} />
         <SideNavBar functions={(progressBarFunctions, navBarFunctions)} />
@@ -162,6 +164,5 @@ export default function App() {
         </Switch>
         <Footer />
       </HashRouter>
-    </React.StrictMode>
   );
 }

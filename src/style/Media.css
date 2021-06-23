@@ -77,5 +77,23 @@
     -ms-flex-preferred-size: unset;
         flex-basis: unset;
   }
+  .questions-section {
+    padding: 1rem 0.3rem;
+  }
+  .questions-section .questions-page {
+    -ms-grid-columns: none;
+        grid-template-columns: none;
+    -ms-grid-rows: max-content 1fr;
+        grid-template-rows: -webkit-max-content 1fr;
+        grid-template-rows: max-content 1fr;
+  }
+  .questions-section .questions-page .question-sort-filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .questions-section .questions-page .question-sort-filter .questions-sort {
+    margin-right: 20px;
+  }
 }
 /*# sourceMappingURL=Media.css.map */

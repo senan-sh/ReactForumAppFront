@@ -995,6 +995,7 @@ span.swiper-pagination-progressbar-fill {
 				margin: 1rem 0;
 				overflow: hidden;
 				transition: all 0.3s ease-in-out;
+				cursor: pointer;
 				&::before {
 					position: absolute;
 					top: 0;
@@ -1153,6 +1154,13 @@ span.swiper-pagination-progressbar-fill {
 }
 // Create Question
 .create-question{
-	position: relative;
-	
+	.create-question-dialog-inner{
+		display: none;
+		background-color: white;
+		width: 400px;
+		height: 200px;
+	}
+	.create-question-dialog{
+		display: none!important;
+	}
 }
