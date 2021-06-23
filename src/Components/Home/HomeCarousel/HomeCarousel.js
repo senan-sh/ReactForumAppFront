@@ -151,13 +151,11 @@ export default function HomeCarousel() {
         <Modal
           open={modalOpen}
           closeAfterTransition
-          BackdropProps={{ timeout: 500, style: { backgroundColor: "rgba(0,0,0,0.5)" } }}
         >
           <div className="carousel-modal-content">
             <CloseOutlined
               onClick={functions.closeModal}
               className="carousel-modal-content-close"
-              BackdropProps={{ timeout: 500, style: { backgroundColor: "rgba(0,0,0,0.7)" } }}
             />
             <h3>Sualın tam mətni:</h3>
             <p>{modalData?.question}</p>
@@ -189,13 +187,11 @@ export default function HomeCarousel() {
 
         <Modal
           open={statisticsModalOpen}
-          BackdropProps={{ timeout: 500, style: { backgroundColor: "rgba(0,0,0,0.5)" } }}
         >
           <div className="carousel-modal-content">
             <CloseOutlined
               onClick={()=>{setStatisticsModalOpen(false)}}
               className="carousel-modal-content-close"
-              BackdropProps={{ timeout: 500, style: { backgroundColor: "rgba(0,0,0,0.7)" } }}
             />
             <h3>Statistik məlumatlar demo versiya üçün aktiv deyil.</h3>
           </div>

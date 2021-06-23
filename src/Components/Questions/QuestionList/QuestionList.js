@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Question from './Question'
 import QuestionSkeleton from './QuestionSkeleton'
+import { TextField, Button } from "@material-ui/core";
 
 export default function QuestionList() {
-
-
 
     // ======================================== Create Skeletons ========================================
     const skeletonCreator = (count) => {
@@ -14,21 +13,15 @@ export default function QuestionList() {
         }
         return skeleton_array;
     }
-
-
-
     const additional_skeleton_list = useRef(null);
     const loadingSkeletonVisibilityChanger = (cssDisplayType) => {
         if (additional_skeleton_list.current !== null) {
             additional_skeleton_list.current.style.display = cssDisplayType;
         }
     }
-
-
-
     // ======================================== Fetch More Items with Intersection Observer ========================================
     const readyFor5MoreQuestions = (last_question_element) => {
-        const io = new IntersectionObserver( (entries, observer) => {
+        const io = new IntersectionObserver((entries, observer) => {
             entries.forEach(async (entry) => {
                 if (entry.isIntersecting) {
                     setTimeout(async () => {
@@ -40,12 +33,6 @@ export default function QuestionList() {
         }, { rootMargin: "0px" });
         io.observe(last_question_element);
     };
-
-
-
-
-
-
     // ======================================== Fetch Questions ========================================
     const [question_list, setQuestionList] = useState(null);
 
@@ -69,7 +56,6 @@ export default function QuestionList() {
         setQuestionList(question_array);
         loadingSkeletonVisibilityChanger("none")
     }, []);
-
     //When question list changes, change observed element
     useEffect(() => {
         if (question_list != null && question_list.length > 0) {
@@ -80,22 +66,16 @@ export default function QuestionList() {
             }
         }
     }, [question_list])
-
-
-
-
-
-
-
-
-
     if (question_list != null && question_list.length > 0) {
         const question_items = question_list.map((q, i) => {
             return <Question key={i} question={q} />
         })
-
         return (
             <div className="question-list">
+                <div className="search_box">
+                    <TextField size="small" label="Axtarış mətni" variant="outlined" datatype="string" />
+                    <Button size="small" variant="contained">Axtar</Button>
+                </div>
                 {question_items}
                 <div ref={additional_skeleton_list} className="additional-skeleton-list">
                     {skeletonCreator(5)}

@@ -15,7 +15,6 @@ export default function CreateQuestion() {
             background: '#693be8',
             boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
             color: 'white',
-            margin: "0.5rem",
             padding: "0.8rem 1rem",
             "&:hover": {
                 backgroundColor: "#3b14a7"
@@ -26,9 +25,14 @@ export default function CreateQuestion() {
             "& h1": {
                 textAlign: "center",
                 marginTop: "1rem"
+            },
+            "& form": {
+                width: "70%",
+                minWidth: "300px",
             }
         },
         dialog_box: {
+
             width: "70%",
             minWidth: "300px",
             padding: "4rem 1rem"
@@ -67,6 +71,8 @@ export default function CreateQuestion() {
     });
     const classes = useStyles();
 
+    let firstTimeEnteringSubjectInput = true;
+    let firstTimeEnteringTextInput = true;
     let isFormSubmitable = false;
 
     const [subjectTextFieldError, setSubjectTextFieldError] = useState({});
@@ -75,11 +81,13 @@ export default function CreateQuestion() {
     const validateQuestionCreationInput = (e) => {
         if (e.target.name === "question_subject") {
             if (e.target.value.length < 3) {
+                isFormSubmitable = false;
                 setSubjectTextFieldError({
                     isError: true,
                     text: "Mövzunu 3-dən aşağı sayda simvolla əhatə etmək olmaz"
                 })
             } else {
+                isFormSubmitable = true;
                 setSubjectTextFieldError({
                     isError: false,
                     text: ""
@@ -88,11 +96,13 @@ export default function CreateQuestion() {
         }
         if (e.target.name === "question_text") {
             if (e.target.value.length < 10) {
+                isFormSubmitable = false;
                 setQuestionTextFieldError({
                     isError: true,
                     text: "Sual mətni daha geniş əhatə olunmalıdır."
                 })
             } else {
+                isFormSubmitable = true;
                 setQuestionTextFieldError({
                     isError: false,
                     text: ""
@@ -104,14 +114,21 @@ export default function CreateQuestion() {
 
     const submitForm = (e) => {
         if (isFormSubmitable === false) {
-            alert()
             e.preventDefault()
-        }else{
+        } else {
             e.preventDefault()
+            alert("Submitted")
 
             // Post question data to API
         }
     }
+
+
+
+
+
+
+
 
     return (
         <div className="create-question">
@@ -123,19 +140,20 @@ export default function CreateQuestion() {
                         <FormControl fullWidth className={classes.form_control}>
 
 
-                            <TextField fullWidth size="medium" onBlur={validateQuestionCreationInput} error={subjectTextFieldError.isError}
+                            <TextField fullWidth size="medium" onChange={validateQuestionCreationInput} error={subjectTextFieldError.isError}
                                 name="question_subject" helperText={subjectTextFieldError.text} variant="filled" label="Mövzu" datatype="string" />
 
 
-                            <TextField fullWidth error={questionTextFieldError.isError} onBlur={validateQuestionCreationInput} helperText={questionTextFieldError.text} rows={4}
+                            <TextField fullWidth error={questionTextFieldError.isError} onChange={validateQuestionCreationInput} helperText={questionTextFieldError.text} rows={4}
                                 name="question_text" multiline variant="filled" label="Sorğu mətni" datatype="string" />
-
-
 
                             <Box className={classes.dialog_anonymbox}>
                                 <span className={classes.anonym_text}>Anonim:</span>
-                                <Switch title="Anonim" defaultChecked={false}></Switch>
+                                <Switch color="primary" title="Anonim" defaultChecked={false}></Switch>
                             </Box>
+
+
+
                             <Button type="submit" className={"ass"} variant="outlined" color="primary">Sorğu yarat</Button>
                         </FormControl>
                     </Box>
