@@ -56,6 +56,7 @@ export default function QuestionList() {
         setQuestionList(question_array);
         loadingSkeletonVisibilityChanger("none")
     }, []);
+
     //When question list changes, change observed element
     useEffect(() => {
         if (question_list != null && question_list.length > 0) {
@@ -73,8 +74,8 @@ export default function QuestionList() {
         return (
             <div className="question-list">
                 <div className="search_box">
-                    <TextField size="small" label="Axtarış mətni" variant="outlined" datatype="string" />
-                    <Button size="small" variant="contained">Axtar</Button>
+                    <TextField style={{ marginRight: "10px" }} size="small" label="Axtarış mətni" variant="outlined" datatype="string" />
+                    <Button style={{ backgroundColor: "#3B14A7",color:"#fff" }} size="small" variant="contained">Axtar</Button>
                 </div>
                 {question_items}
                 <div ref={additional_skeleton_list} className="additional-skeleton-list">

@@ -710,7 +710,7 @@ div.sideNavBar ul li.side-nav-list-element:hover {
 .home-about-section .home-about-image-wrapper p {
   background-color: #3b14a7bd;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
   color: white;
   position: absolute;
   top: 50%;
@@ -809,13 +809,15 @@ span.swiper-pagination-progressbar-fill {
 
 .carousel-wrapper .home-carousel-card-wrapper .home-carousel-card .home-carousel-card-statistics > div {
   cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .carousel-wrapper .home-carousel-card-wrapper .home-carousel-card .home-carousel-card-statistics > div:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .carousel-wrapper .home-carousel-card-wrapper .home-carousel-card .home-carousel-card-statistics .home-carousel-view-wrapper,
@@ -1461,6 +1463,9 @@ span.swiper-pagination-progressbar-fill {
   -webkit-box-align: left;
       -ms-flex-align: left;
           align-items: left;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .questions-section .questions-page .question-sort-filter .questions-sort,
@@ -1477,11 +1482,12 @@ span.swiper-pagination-progressbar-fill {
           align-items: center;
   border: 1px solid #3b14a7;
   padding: 0.5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  color: #3b14a7;
 }
 
 .questions-section .questions-page .question-sort-filter .questions-sort::before,
@@ -1502,7 +1508,6 @@ span.swiper-pagination-progressbar-fill {
 
 .questions-section .questions-page .question-sort-filter .questions-sort span,
 .questions-section .questions-page .question-sort-filter .questions-filter span {
-  font-weight: bold;
   z-index: 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1711,26 +1716,65 @@ span.swiper-pagination-progressbar-fill {
   background-color: rgba(255, 255, 255, 0.801);
 }
 
-.create-question {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.guide-page {
+  height: 100vh;
+  position: relative;
 }
 
-.create-question .create-question-dialog-inner {
+.guide-page .guide-section {
+  position: absolute;
+  left: 1rem;
+  border: 1px solid #fff;
+  background-color: #693be8;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  padding: 2rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.guide-page .guide-section div {
   display: none;
-  background-color: white;
-  width: 400px;
-  height: 200px;
 }
 
-.create-question .create-question-dialog {
-  display: none !important;
+.guide-page .guide-section:nth-of-type(1) {
+  top: 10%;
+  background-color: #5320df;
+}
+
+.guide-page .guide-section:nth-of-type(2) {
+  top: 20%;
+  background-color: #4609f0;
+}
+
+.guide-page .guide-section:nth-of-type(3) {
+  top: 30%;
+  background-color: #240b69;
+}
+
+.guide-page .guide-section:nth-of-type(4) {
+  top: 40%;
+  background-color: #120438;
+}
+
+.guide-page .guide-section.active {
+  z-index: 0;
+  left: 0;
+  -webkit-clip-path: none;
+          clip-path: none;
+  border: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.guide-page .guide-section.active div {
+  display: block;
 }
 /*# sourceMappingURL=App.css.map */

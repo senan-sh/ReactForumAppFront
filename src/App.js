@@ -11,7 +11,7 @@ import HowTo from "./Components/Guide/HowTo";
 import Questions from "./Components/Questions/Questions";
 import Authorization from './Components/Authorization/Authorization'
 //React-Router
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Error404 from "./Components/404Page.js/Error404";
 import React, { useEffect, useRef } from "react";
 
@@ -117,7 +117,7 @@ export default function App() {
   // }, [])
 
   return (
-      <HashRouter>
+      <BrowserRouter>
         <div onClick={navBarFunctions.closeSideNavBar} className="black-overlay"></div>
         <UpBar functions={(progressBarFunctions, navBarFunctions)} />
         <SideNavBar functions={(progressBarFunctions, navBarFunctions)} />
@@ -163,6 +163,6 @@ export default function App() {
           />
         </Switch>
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
   );
 }

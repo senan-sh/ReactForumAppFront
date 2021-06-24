@@ -133,7 +133,7 @@ export default function CreateQuestion() {
     return (
         <div className="create-question">
             <Button className={classes.button} onClick={() => { setCreateQuestionDialog(true) }} variant="contained" >Sorğu yarat</Button>
-            <Dialog className={classes.create_dialog} disableBackdropClick={false} transitionDuration={{ appear: 1000, exit: 1000, enter: 1000 }} open={createQuestionDialog} >
+            <Dialog className={classes.create_dialog} transitionDuration={{ appear: 500, exit: 500, enter: 500 }} open={createQuestionDialog} >
                 <h1>Sorğu yarat</h1>
                 <form noValidate onSubmit={submitForm}>
                     <Box className={classes.dialog_box}>
@@ -154,7 +154,7 @@ export default function CreateQuestion() {
 
 
 
-                            <Button type="submit" className={"ass"} variant="outlined" color="primary">Sorğu yarat</Button>
+                            <Button type="submit" variant="outlined" color="primary">Sorğu yarat</Button>
                         </FormControl>
                     </Box>
                 </form>
