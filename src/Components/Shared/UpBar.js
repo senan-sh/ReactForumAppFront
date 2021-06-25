@@ -8,11 +8,6 @@ export default function UpBar(props) {
         <h1>Azərbaycanda ilk "Sual-Cavab" platforması</h1>
         <span className="material-icons-round">question_answer</span>
       </div>
-      <div className="up-progress-wrapper">
-        <div className="progress-bar-relative">
-          <div id="up-progress-bar"></div>
-        </div>
-      </div>
     </div>
   );
 }
