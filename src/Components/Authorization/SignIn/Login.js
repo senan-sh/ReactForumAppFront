@@ -3,7 +3,7 @@ import { TextField, Button } from "@material-ui/core";
 export default function Login() {
   return (
     <div>
-      <form>
+      <form onSubmit={(e)=>{e.preventDefault()}}>
         <div className="auth-form-inner">
           <TextField className="auth-form-element" variant="outlined" label="İstifadəçi adınız" />
           <TextField className="auth-form-element" variant="outlined" label="Parol" />

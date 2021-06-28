@@ -10,6 +10,7 @@ import About from "./Components/About/About";
 import HowTo from "./Components/Guide/HowTo";
 import Questions from "./Components/Questions/Questions";
 import Authorization from './Components/Authorization/Authorization'
+import AboutWebProject from './Components/About Project/AboutWebProject'
 //React-Router
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Error404 from "./Components/404Page.js/Error404";
@@ -153,6 +154,12 @@ export default function App() {
             path="/" exact
             render={() => {
               return <HomePage functions={passedData} />;
+            }}
+          />
+          <Route
+            path="/project" exact
+            render={() => {
+              return <AboutWebProject functions={passedData} />;
             }}
           />
           <Route

@@ -164,6 +164,26 @@ div.sideNavBar {
 				color: black;
 				transition: all 0.2s ease-in-out;
 			}
+			&.about-web-project-link {
+				position: relative;
+				&::after {
+					content: "demo";
+					font-size: 0.8rem;
+					background-color: #000;
+					border-radius: 5px;
+					padding: 2px;
+					position: absolute;
+					right: 1px;
+					top: 0;
+					transition: all 0.2s ease-in-out;
+				}
+				&:hover {
+					&::after {
+						color: #fff;
+						transition: all 0.2s ease-in-out;
+					}
+				}
+			}
 		}
 	}
 }
@@ -1142,32 +1162,26 @@ span.swiper-pagination-progressbar-fill {
 	overflow: hidden;
 	background-color: $dark;
 
+	.buttons4guide-section {
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		display: flex;
+		justify-content: space-around;
+		width: 10rem;
+	}
 	.guide-section-btn {
 		padding: 0.5rem;
 		border: 1px solid white;
 		border-radius: 50%;
-		position: absolute;
-		left: 1rem;
-		z-index: 3;
-		top: 50%;
 		border: 1px solid #000;
+		cursor: pointer;
 
 		&.active {
 			border-color: white;
 			background-color: rgb(34, 34, 34);
-		}
-
-		&:nth-of-type(1) {
-			transform: translateY(-225%);
-		}
-		&:nth-of-type(2) {
-			transform: translateY(-75%);
-		}
-		&:nth-of-type(3) {
-			transform: translateY(75%);
-		}
-		&:nth-of-type(4) {
-			transform: translateY(225%);
 		}
 	}
 
@@ -1214,12 +1228,13 @@ span.swiper-pagination-progressbar-fill {
 					border-left: 1px solid white;
 
 					animation-duration: 1s;
-					animation-timing-function: steps(35);
+					animation-timing-function: steps(50);
 					animation-iteration-count: 1;
 					animation-fill-mode: forwards;
+					animation-delay: 0.5s;
 				}
 				&.animating {
-					&::before{
+					&::before {
 						animation-name: typing;
 					}
 				}
@@ -1255,5 +1270,47 @@ span.swiper-pagination-progressbar-fill {
 		clip-path: circle(100% at 50% 50%);
 		padding: 0;
 		transition: clip-path 1s ease-in-out;
+	}
+}
+//About Web project
+.about-this-project-section {
+	display: grid;
+	place-content: center;
+	padding: 1rem;
+	color: #fff;
+	.about-this-project-inner {
+		background-image: linear-gradient(90deg, #6b03fc, red);
+		border-radius: 20px;
+		padding: 1rem;
+		& > p {
+			font-size: 2rem;
+			font-weight: 200;
+			margin: 1rem 0;
+		}
+		.about-project-tech-stack {
+			ul {
+				padding: 0.5rem 0 1rem 1rem;
+				li {
+					display: flex;
+					align-items: center;
+					padding: 20px 0;
+					&::before {
+						content: "-";
+						margin-right: 5px;
+					}
+					img {
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						margin-right: 5px;
+					}
+					span {
+					}
+					&:not(:last-child) {
+						border-bottom: 1px solid #fff;
+					}
+				}
+			}
+		}
 	}
 }

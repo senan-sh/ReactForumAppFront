@@ -224,6 +224,29 @@ div.sideNavBar ul li.side-nav-list-element:hover {
   transition: all 0.2s ease-in-out;
 }
 
+div.sideNavBar ul li.side-nav-list-element.about-web-project-link {
+  position: relative;
+}
+
+div.sideNavBar ul li.side-nav-list-element.about-web-project-link::after {
+  content: "demo";
+  font-size: 0.8rem;
+  background-color: #000;
+  border-radius: 5px;
+  padding: 2px;
+  position: absolute;
+  right: 1px;
+  top: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+div.sideNavBar ul li.side-nav-list-element.about-web-project-link:hover::after {
+  color: #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 .home-svg-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1654,40 +1677,32 @@ span.swiper-pagination-progressbar-fill {
   background-color: #3b14a7;
 }
 
+.guide-page .buttons4guide-section {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 10rem;
+}
+
 .guide-page .guide-section-btn {
   padding: 0.5rem;
   border: 1px solid white;
   border-radius: 50%;
-  position: absolute;
-  left: 1rem;
-  z-index: 3;
-  top: 50%;
   border: 1px solid #000;
+  cursor: pointer;
 }
 
 .guide-page .guide-section-btn.active {
   border-color: white;
   background-color: #222222;
-}
-
-.guide-page .guide-section-btn:nth-of-type(1) {
-  -webkit-transform: translateY(-225%);
-          transform: translateY(-225%);
-}
-
-.guide-page .guide-section-btn:nth-of-type(2) {
-  -webkit-transform: translateY(-75%);
-          transform: translateY(-75%);
-}
-
-.guide-page .guide-section-btn:nth-of-type(3) {
-  -webkit-transform: translateY(75%);
-          transform: translateY(75%);
-}
-
-.guide-page .guide-section-btn:nth-of-type(4) {
-  -webkit-transform: translateY(225%);
-          transform: translateY(225%);
 }
 
 .guide-page .guide-section {
@@ -1747,12 +1762,14 @@ span.swiper-pagination-progressbar-fill {
   border-left: 1px solid white;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  -webkit-animation-timing-function: steps(35);
-          animation-timing-function: steps(35);
+  -webkit-animation-timing-function: steps(50);
+          animation-timing-function: steps(50);
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .guide-page .guide-section .guide-section-inner div.animating::before {
@@ -1809,5 +1826,56 @@ span.swiper-pagination-progressbar-fill {
   transition: -webkit-clip-path 1s ease-in-out;
   transition: clip-path 1s ease-in-out;
   transition: clip-path 1s ease-in-out, -webkit-clip-path 1s ease-in-out;
+}
+
+.about-this-project-section {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+.about-this-project-section .about-this-project-inner {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6b03fc), to(red));
+  background-image: linear-gradient(90deg, #6b03fc, red);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.about-this-project-section .about-this-project-inner > p {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 1rem 0;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack ul {
+  padding: 0.5rem 0 1rem 1rem;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack ul li::before {
+  content: "-";
+  margin-right: 5px;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack ul li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack ul li:not(:last-child) {
+  border-bottom: 1px solid #fff;
 }
 /*# sourceMappingURL=App.css.map */

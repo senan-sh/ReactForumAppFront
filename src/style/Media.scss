@@ -70,18 +70,36 @@
     .questions-page {
       grid-template-columns: none;
       grid-template-rows: max-content 1fr;
-      .question-sort-filter{
+      .question-sort-filter {
         display: flex;
         flex-direction: row;
-        justify-content:space-around;
-        .questions-sort{
+        justify-content: space-around;
+        .questions-sort {
           margin-right: 20px;
+        }
+      }
+    }
+  }
+  .guide-section {
+    .guide-section-inner {
+      div {
+        span {
+          font-size: 1.2rem;
         }
       }
     }
   }
 }
 @media only screen and (max-width: 400px) {
+  .guide-section {
+    .guide-section-inner {
+      div {
+        span {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 300px) {

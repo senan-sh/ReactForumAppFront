@@ -6,9 +6,6 @@ export default function Question({ question }) {
     const static_profile_image_url = "/assets/img/static_user.png";
     const static_username = "Anonim";
 
-    // const { username = static_username, image = static_profile_image_url } = question.user;
-    // const { text } = question;
-
     const username = question.user.username || static_username,
         image = question.user.image || static_profile_image_url,
         text = question.text || null;

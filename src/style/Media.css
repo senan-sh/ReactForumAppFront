@@ -101,5 +101,14 @@
   .questions-section .questions-page .question-sort-filter .questions-sort {
     margin-right: 20px;
   }
+  .guide-section .guide-section-inner div span {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .guide-section .guide-section-inner div span {
+    font-size: 1.1rem;
+  }
 }
 /*# sourceMappingURL=Media.css.map */
