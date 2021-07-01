@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 html {
@@ -210,6 +211,11 @@ div.sideNavBar ul li.side-nav-list-element {
           align-items: center;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+div.sideNavBar ul li.side-nav-list-element.active {
+  background-color: rgba(255, 255, 255, 0.37);
+  font-weight: 600;
 }
 
 div.sideNavBar ul li.side-nav-list-element span {
@@ -1829,6 +1835,7 @@ span.swiper-pagination-progressbar-fill {
 }
 
 .about-this-project-section {
+  background-color: #c5c5c5;
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -1847,6 +1854,13 @@ span.swiper-pagination-progressbar-fill {
   font-size: 2rem;
   font-weight: 200;
   margin: 1rem 0;
+  text-shadow: 7px 3px 2px #ce5937;
+}
+
+.about-this-project-section .about-this-project-inner .about-project-tech-stack > h3::after {
+  content: ":";
+  font-size: 13px;
+  margin-left: 2px;
 }
 
 .about-this-project-section .about-this-project-inner .about-project-tech-stack ul {
@@ -1877,5 +1891,70 @@ span.swiper-pagination-progressbar-fill {
 
 .about-this-project-section .about-this-project-inner .about-project-tech-stack ul li:not(:last-child) {
   border-bottom: 1px solid #fff;
+}
+
+.about-this-project-section .project-source-code {
+  margin: 1rem auto;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner {
+  background-color: #646464;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner::before {
+  content: "";
+  background-color: #fff;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  bottom: 1px;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner:hover {
+  background-color: black;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner:hover::before {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-this-project-section .project-source-code a .project-source-code-inner span img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-left: 5px;
 }
 /*# sourceMappingURL=App.css.map */

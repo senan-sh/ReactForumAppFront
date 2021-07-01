@@ -126,7 +126,7 @@ export default function HomeCarousel() {
 
   return (
     <div className="carousel-wrapper">
-      <h1>Ən çox baxılanlar:</h1>
+      <h1>Ən çox baxılan sorğular:</h1>
       <Swiper
         spaceBetween={20}
         centeredSlides

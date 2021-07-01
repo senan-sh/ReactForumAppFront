@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react'
 
-export default function HowTo() {
+export default function HowTo({data:{setActivePage}}) {
 
+    useEffect(() => {
+        setActivePage("guide")
+      }, [])
 
     const parentDiv = useRef(null)
     const buttonsDiv = useRef(null)

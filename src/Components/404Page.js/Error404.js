@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
-export default function Error404() {
+import { useEffect } from "react";
+export default function Error404({data:{setActivePage}}) {
+
+  useEffect(() => {
+    setActivePage("404")
+  }, [])
+
   return (
     <div className="error-page-404">
       <div style={backgroundImageStyle} className="error-page-filter"></div>

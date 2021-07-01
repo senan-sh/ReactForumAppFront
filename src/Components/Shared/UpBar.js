@@ -1,7 +1,10 @@
-export default function UpBar(props) {
+export default function UpBar({ data: { setIsNavOpen } }) {
+
+
+
   return (
     <div className="upBar">
-      <div onClick={props.functions.openSideNavBar} className="menuIcon">
+      <div onClick={()=>{setIsNavOpen(true)}} className="menuIcon">
         <span className="material-icons-round menu-burger-icon-nav">menu</span>
       </div>
       <div className="introduction">
