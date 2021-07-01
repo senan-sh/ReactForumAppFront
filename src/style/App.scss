@@ -4,8 +4,17 @@ $light: #693be8;
 $u-light: #af96f3;
 $yellow: #ffed99;
 //Imports
+
+//FONTS`
+// Roboto || Caveat
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+// Roboto Mono
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+// Baloo Tammudu 2
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap");
+
+
+
 @import "./FunctionsVars.scss";
 //Defaults
 * {
@@ -1218,7 +1227,8 @@ span.swiper-pagination-progressbar-fill {
 				font-size: 1.5rem;
 				display: flex;
 				align-items: center;
-				font-family: monospace;
+				font-family: "Roboto Mono";
+				letter-spacing: -1px;
 				overflow: hidden;
 				position: relative;
 				span:last-child {

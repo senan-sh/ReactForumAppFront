@@ -96,31 +96,37 @@ export default function App() {
   }, [])
 
   const [activePage, setActivePage] = useState("home")
+  const [isFooterActive, setIsFooterActive] = useState(true);
   // Change title
   useEffect(() => {
     switch (activePage) {
+      case "questions":
+        document.title = "Sorğular";
+        setIsFooterActive(false);
+        break;
       case "home":
-        document.title = "Ana səhifə"
+        document.title = "Ana səhifə";
         break;
       case "about":
-        document.title = "Haqqımızda"
-        break;
-      case "questions":
-        document.title = "Sorğular"
+        document.title = "Haqqımızda";
         break;
       case "about_project":
-        document.title = "Layihə haqqında"
+        document.title = "Layihə haqqında";
         break;
       case "guide":
-        document.title = "İstifadəyə göstəriş"
+        document.title = "İstifadəyə göstəriş";
         break;
       case "authorization":
-        document.title = "Hesaba daxil ol"
+        document.title = "Hesaba daxil ol";
         break;
       case "404":
-        document.title = "Xəta"
+        document.title = "Xəta";
         break;
     }
+    if (activePage !== "questions") {
+      setIsFooterActive(true);
+    }
+
   }, [activePage])
 
   return (
@@ -175,7 +181,7 @@ export default function App() {
           }}
         />
       </Switch>
-      <Footer />
+      {isFooterActive && <Footer />}
     </BrowserRouter>
   );
 }

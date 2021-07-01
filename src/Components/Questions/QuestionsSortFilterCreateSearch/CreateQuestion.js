@@ -27,7 +27,6 @@ export default function CreateQuestion() {
                 marginTop: "1rem"
             },
             "& form": {
-                width: "70%",
                 minWidth: "300px",
             }
         },

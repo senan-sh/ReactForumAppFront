@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function SideNavBar({ data: { isNavOpen, setIsNavOpen, activePage } }) {
 
@@ -13,6 +13,8 @@ export default function SideNavBar({ data: { isNavOpen, setIsNavOpen, activePage
   }, [isNavOpen])
 
   const nav_link_list = useRef(null);
+
+  let currentPath = useHistory().location.pathname;
   useEffect(() => {
     if (nav_link_list.current !== null) {
       for (const e of nav_link_list.current.children) {
@@ -24,24 +26,8 @@ export default function SideNavBar({ data: { isNavOpen, setIsNavOpen, activePage
         }
       }
     }
-  }, [window.location.href])
+  }, [currentPath])
 
-  // useEffect(() => {
-  //   switch (activePage) {
-  //     case "home":
-  //       break;
-  //     case "about":
-  //       break;
-  //     case "questions":
-  //       break;
-  //     case "about_project":
-  //       break;
-  //     case "guide":
-  //       break;
-  //     case "authorization":
-  //       break;
-  //   }
-  // }, [activePage])
 
   return (
     <div ref={sideNavBar} className="sideNavBar closed">
