@@ -31,8 +31,6 @@ export default function CreateQuestion() {
             }
         },
         dialog_box: {
-
-            width: "70%",
             minWidth: "300px",
             padding: "4rem 1rem"
         },
@@ -110,7 +108,6 @@ export default function CreateQuestion() {
         }
     }
 
-
     const submitForm = (e) => {
         if (isFormSubmitable === false) {
             e.preventDefault()
@@ -121,12 +118,6 @@ export default function CreateQuestion() {
             // Post question data to API
         }
     }
-
-
-
-
-
-
 
 
     return (
