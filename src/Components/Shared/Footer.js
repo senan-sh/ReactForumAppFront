@@ -71,16 +71,19 @@ export default function Footer() {
               <span className="material-icons-outlined">email</span>Ən son yeniliklərdən xəbərdar
               olun.
             </h4>
-            <form>
-              <input
-                autoComplete="off"
-                type="email"
-                id="footer_email"
-                placeholder="Email adresiniz..."
-              />
-              <button type="submit">
-                <SendIcon className="send-icon-mail" />
-              </button>
+            <form onSubmit={(e) => { e.preventDefault() }}>
+              <div className="footer-mail-inp">
+                <input
+                  autoComplete="off"
+                  required
+                  type="email"
+                  id="footer_email"
+                  placeholder="Email adresiniz..."
+                />
+                <button type="submit">
+                  <SendIcon className="send-icon-mail" />
+                </button>
+              </div>
             </form>
           </div>
         </div>

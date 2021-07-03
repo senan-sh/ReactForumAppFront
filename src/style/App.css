@@ -841,6 +841,8 @@ span.swiper-pagination-progressbar-fill {
 }
 
 .footer-main .footer > div {
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75) inset;
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75) inset;
   border-bottom: 1px solid white;
   padding: 1rem;
   background-color: #360ea7;
@@ -884,12 +886,6 @@ span.swiper-pagination-progressbar-fill {
   padding: 0.2rem;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .footer-main .footer > div.contact-us-footer .contact-footer-mail h4 {
   font-weight: 400;
   display: -webkit-box;
@@ -906,90 +902,67 @@ span.swiper-pagination-progressbar-fill {
   font-size: 2rem;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form {
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp {
+  max-width: 100%;
+  width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input {
-  padding: 0.3rem 0.5rem;
-  border-radius: 3px;
-  outline: none;
-  border: 2px solid #af96f3;
-  background-color: transparent;
-  font-size: 1.2rem;
-  max-width: 90%;
-  color: black;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp::before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input::-webkit-input-placeholder {
-  color: white;
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp:focus-within::before {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:-ms-input-placeholder {
-  color: white;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input::-ms-input-placeholder {
-  color: white;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input::placeholder {
-  color: white;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:focus {
-  -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
-          box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
-  background-color: white;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:focus::-webkit-input-placeholder {
-  color: black;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:focus:-ms-input-placeholder {
-  color: black;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:focus::-ms-input-placeholder {
-  color: black;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form input:focus::placeholder {
-  color: black;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form button {
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp input[type="email"] {
+  width: 100%;
+  height: 30px;
+  padding: 3px 5px;
+  font-size: 13px;
   outline: none;
   border: none;
-  cursor: pointer;
+  background-color: transparent;
+  position: relative;
+}
+
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp button {
+  border: none;
+  border-radius: 50%;
+  padding: 3px;
   background-color: transparent;
 }
 
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form button .send-icon-mail {
-  fill: white;
-  margin-left: 5px;
-  border-radius: 3px;
-  border: 1px solid white;
-  padding: 0.3rem;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-
-.footer-main .footer > div.contact-us-footer .contact-footer-mail form button .send-icon-mail:hover {
-  fill: #3b14a7;
-  background-color: white;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+.footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp button svg {
+  color: #3b14a7;
+  width: 20px;
+  height: 20px;
 }
 
 .footer-main .footer > div.fast-asking-questions-footer ul li {
@@ -1352,6 +1325,10 @@ span.swiper-pagination-progressbar-fill {
   text-align: center;
 }
 
+.authorization .auth-login-register .login-or-register-wrapper .account-existence-switch-wrapper .auth-hidden-info .auth-hidden-info-inner p {
+  margin: 0 20px;
+}
+
 .authorization .auth-login-register .login-or-register-wrapper .account-existence-switch-wrapper .auth-hidden-info .auth-hidden-info-inner .auth-info-close-icon {
   position: absolute;
   right: 10px;
@@ -1500,7 +1477,8 @@ span.swiper-pagination-progressbar-fill {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 1rem 0;
-  background-color: #f2e8f8a9;
+  -webkit-box-shadow: 0 0 20px 10px #f2e8f8a9;
+          box-shadow: 0 0 20px 10px #f2e8f8a9;
   border-radius: 5px;
   padding: 1rem;
 }

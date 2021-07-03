@@ -62,7 +62,7 @@ export default function HowTo({data:{setActivePage}}) {
                     <div className="guide-section-inner">
                         <div>
                             <span>2.</span>
-                            <span>İstifadəçi qaydaları ilə tanış olun</span>
+                            <span>İstifadə qaydaları ilə tanış olun</span>
                             <span className="material-icons-outlined">library_books</span>
                         </div>
                     </div>

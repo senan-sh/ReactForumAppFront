@@ -21,6 +21,7 @@ export default function CreateQuestion() {
             },
         },
         create_dialog: {
+            minWidth: "300px",
             position: "relative",
             "& h1": {
                 textAlign: "center",
@@ -31,7 +32,7 @@ export default function CreateQuestion() {
             }
         },
         dialog_box: {
-            minWidth: "300px",
+            maxWidth: "100%",
             padding: "4rem 1rem"
         },
         form_control: {
@@ -63,87 +64,67 @@ export default function CreateQuestion() {
             }
         },
         text_fields: {
-            padding: "0 2rem"
+            padding: "0 0!important"
         }
     });
     const classes = useStyles();
 
-    let firstTimeEnteringSubjectInput = true;
-    let firstTimeEnteringTextInput = true;
     let isFormSubmitable = false;
 
-    const [subjectTextFieldError, setSubjectTextFieldError] = useState({});
-    const [questionTextFieldError, setQuestionTextFieldError] = useState({});
 
-    const validateQuestionCreationInput = (e) => {
-        if (e.target.name === "question_subject") {
-            if (e.target.value.length < 3) {
-                isFormSubmitable = false;
-                setSubjectTextFieldError({
-                    isError: true,
-                    text: "Mövzunu 3-dən aşağı sayda simvolla əhatə etmək olmaz"
-                })
-            } else {
-                isFormSubmitable = true;
-                setSubjectTextFieldError({
-                    isError: false,
-                    text: ""
-                })
-            }
-        }
-        if (e.target.name === "question_text") {
-            if (e.target.value.length < 10) {
-                isFormSubmitable = false;
-                setQuestionTextFieldError({
-                    isError: true,
-                    text: "Sual mətni daha geniş əhatə olunmalıdır."
-                })
-            } else {
-                isFormSubmitable = true;
-                setQuestionTextFieldError({
-                    isError: false,
-                    text: ""
-                })
-            }
-        }
-    }
+
+
+    const [inputSubject, setInputSubject] = useState({ value:"", isError:false, helperText:"" });
+    const [inputQuestion, setInputQuestion] = useState({ value:"", isError:false, helperText:"" });
+    const [inputAnonym, setInputAnonym] = useState({ value:"", helperText:"" });
+
 
     const submitForm = (e) => {
-        if (isFormSubmitable === false) {
-            e.preventDefault()
-        } else {
-            e.preventDefault()
-            alert("Submitted")
+        e.preventDefault()
+    }
 
-            // Post question data to API
-        }
+    const onChangeSubjectInput = (e) => {
+        setInputSubject(e.target.value);
+    }
+    const onChangeQuestionInput = (e) => {
+        setInputQuestion(e.target.value);
+    }
+    const onChangeAnonymInput = (e) => {
+        setInputAnonym(e.target.value);
     }
 
 
     return (
         <div className="create-question">
             <Button className={classes.button} onClick={() => { setCreateQuestionDialog(true) }} variant="contained" >Sorğu yarat</Button>
-            <Dialog className={classes.create_dialog} transitionDuration={{ appear: 500, exit: 500, enter: 500 }} open={createQuestionDialog} >
+            <Dialog onBackdropClick={() => { setCreateQuestionDialog(false) }} className={classes.create_dialog} transitionDuration={{ appear: 500, exit: 500, enter: 500 }} open={createQuestionDialog} >
                 <h1>Sorğu yarat</h1>
                 <form noValidate onSubmit={submitForm}>
                     <Box className={classes.dialog_box}>
                         <FormControl fullWidth className={classes.form_control}>
 
 
-                            <TextField fullWidth size="medium" onChange={validateQuestionCreationInput} error={subjectTextFieldError.isError}
-                                name="question_subject" helperText={subjectTextFieldError.text} variant="filled" label="Mövzu" datatype="string" />
 
 
-                            <TextField fullWidth error={questionTextFieldError.isError} onChange={validateQuestionCreationInput} helperText={questionTextFieldError.text} rows={4}
+                            <TextField error={inputSubject.error} helperText={inputSubject.helperText}
+                                onChange={onChangeSubjectInput}
+                                inputProps={{ maxLength: 40 }}
+                                className={classes.text_fields} fullWidth size="medium" name="question_subject" variant="filled" label="Mövzu" datatype="string" />
+
+                            <TextField error={inputQuestion.error} helperText={inputQuestion.helperText}
+                                onChange={onChangeQuestionInput}
+                                inputProps={{ maxLength: 255 }}
+                                className={classes.text_fields} fullWidth rows={4}
                                 name="question_text" multiline variant="filled" label="Sorğu mətni" datatype="string" />
+
+
 
                             <Box className={classes.dialog_anonymbox}>
                                 <span className={classes.anonym_text}>Anonim:</span>
-                                <Switch color="primary" title="Anonim" defaultChecked={false}></Switch>
+                                <Switch
+                                    value={inputAnonym} onChange={onChangeAnonymInput}
+                                    color="primary" title="Anonim" defaultChecked={false}></Switch>
                             </Box>
-
-
-
                             <Button type="submit" variant="outlined" color="primary">Sorğu yarat</Button>
                         </FormControl>
                     </Box>
