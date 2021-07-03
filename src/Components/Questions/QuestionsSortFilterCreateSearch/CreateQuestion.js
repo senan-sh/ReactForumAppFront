@@ -69,26 +69,65 @@ export default function CreateQuestion() {
     });
     const classes = useStyles();
 
-    let isFormSubmitable = false;
+
+    const [inputSubjectValue, setInputSubjectValue] = useState("");
+    const [inputSubjectIsError, setInputSubjectIsError] = useState(false);
+    const [inputSubjectHelperText, setInputSubjectHelperText] = useState("")
+
+    const [inputQuestionValue, setInputQuestionValue] = useState("");
+    const [inputQuestionIsError, setInputQuestionIsError] = useState(false);
+    const [inputQuestionHelperText, setInputQuestionHelperText] = useState("")
 
 
+    const [inputAnonym, setInputAnonym] = useState({ value: "", helperText: "" });
 
 
-    const [inputSubject, setInputSubject] = useState({ value:"", isError:false, helperText:"" });
-    const [inputQuestion, setInputQuestion] = useState({ value:"", isError:false, helperText:"" });
-    const [inputAnonym, setInputAnonym] = useState({ value:"", helperText:"" });
+    const validateAllInputs = () => {
+        let isSubmittable = true;
 
+        if (inputSubjectValue.length < 5) {
+            setInputSubjectIsError(true);
+            setInputSubjectHelperText("Minimum simvol sayı: 5");
+            isSubmittable = false;
+        }
+
+        if (inputQuestionValue.length < 10) {
+            setInputQuestionIsError(true);
+            setInputQuestionHelperText("Minimum simvol sayı: 10");
+            isSubmittable = false;
+        }
+
+        if (isSubmittable === true) {
+            //Post this question...
+            alert("Success!")
+        }
+    }
 
     const submitForm = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        validateAllInputs();
     }
 
     const onChangeSubjectInput = (e) => {
-        setInputSubject(e.target.value);
+        if (e.target.value.length > 4) {
+            setInputSubjectValue(e.target.value);
+            setInputSubjectIsError(false)
+            setInputSubjectHelperText("")
+        } else {
+            setInputSubjectValue(e.target.value);
+        }
     }
+
     const onChangeQuestionInput = (e) => {
-        setInputQuestion(e.target.value);
+        if (e.target.value.length > 9) {
+            setInputQuestionValue(e.target.value);
+            setInputQuestionIsError(false)
+            setInputQuestionHelperText("")
+        } else {
+            setInputQuestionValue(e.target.value);
+        }
     }
+
     const onChangeAnonymInput = (e) => {
         setInputAnonym(e.target.value);
     }
@@ -103,21 +142,18 @@ export default function CreateQuestion() {
                     <Box className={classes.dialog_box}>
                         <FormControl fullWidth className={classes.form_control}>
 
-
-
-
-                            <TextField error={inputSubject.error} helperText={inputSubject.helperText}
+                            <TextField error={inputSubjectIsError} helperText={inputSubjectHelperText} required
+                                value={inputSubjectValue}
                                 onChange={onChangeSubjectInput}
-                                inputProps={{ maxLength: 40 }}
+                                inputProps={{ maxLength: 40, autoComplete: "off" }}
                                 className={classes.text_fields} fullWidth size="medium" name="question_subject" variant="filled" label="Mövzu" datatype="string" />
 
-                            <TextField error={inputQuestion.error} helperText={inputQuestion.helperText}
+                            <TextField error={inputQuestionIsError} helperText={inputQuestionHelperText} required
+                                value={inputQuestionValue}
                                 onChange={onChangeQuestionInput}
-                                inputProps={{ maxLength: 255 }}
+                                inputProps={{ maxLength: 255, autoComplete: "off" }}
                                 className={classes.text_fields} fullWidth rows={4}
                                 name="question_text" multiline variant="filled" label="Sorğu mətni" datatype="string" />
-
-
 
                             <Box className={classes.dialog_anonymbox}>
                                 <span className={classes.anonym_text}>Anonim:</span>

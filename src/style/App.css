@@ -915,6 +915,8 @@ span.swiper-pagination-progressbar-fill {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 5px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -925,7 +927,7 @@ span.swiper-pagination-progressbar-fill {
   bottom: 0;
   content: "";
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: #000;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
@@ -954,12 +956,13 @@ span.swiper-pagination-progressbar-fill {
 
 .footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp button {
   border: none;
-  border-radius: 50%;
   padding: 3px;
   background-color: transparent;
+  border-left: 1px dotted rgba(0, 0, 0, 0.329);
 }
 
 .footer-main .footer > div.contact-us-footer .contact-footer-mail form .footer-mail-inp button svg {
+  border-radius: 50%;
   color: #3b14a7;
   width: 20px;
   height: 20px;
