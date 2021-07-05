@@ -444,7 +444,7 @@ div.sideNavBar {
 	flex-direction: column;
 	.home-about-image-wrapper {
 		position: relative;
-		.backgroundImageFader {
+		.background-image-fader {
 			width: 100%;
 			height: 100%;
 			background-color: #d2c4f891;
@@ -457,6 +457,7 @@ div.sideNavBar {
 			@include absoluteCentered;
 			font-size: 1.5rem;
 			font-family: "Baloo Tammudu 2", cursive;
+			text-align: center;
 		}
 		width: 100%;
 		height: 100vh;
@@ -1297,6 +1298,42 @@ span.swiper-pagination-progressbar-fill {
 		clip-path: circle(100% at 50% 50%);
 		padding: 0;
 		transition: clip-path 1s ease-in-out;
+	}
+}
+.guide-more-help {
+	display: flex;
+	flex-wrap: wrap;
+	.guide-help-section {
+		padding: 3rem;
+	}
+	.guide-help-section:nth-of-type(1) {
+		flex: 1 1 500px;
+		ul {
+			display: flex;
+			justify-content: space-around;
+			li {
+				span {
+					svg {
+						width: 100px;
+						height: 100px;
+					}
+				}
+			}
+		}
+	}
+	.guide-help-section:nth-of-type(2) {
+		flex: 1 2 500px;
+		padding: 15px;
+		background-color: rgb(233, 233, 233);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		p {
+			text-align: center;
+			color: #000;
+			z-index: 2;
+			font-weight: 500;
+		}
 	}
 }
 //About Web project

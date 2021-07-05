@@ -29,7 +29,7 @@ export default function HomeAnimatedSection() {
       io.observe(svg);
     }
   };
-
+// asdsadsad 
   useEffect(() => {
     const svg_array = document.getElementsByClassName("home-animating-svg");
     animateSvgPaths(svg_array);

@@ -99,6 +99,7 @@ export default function App() {
   const [isFooterActive, setIsFooterActive] = useState(true);
   // Change title
   useEffect(() => {
+    document.documentElement.scrollTo({ top: 0 })
     switch (activePage) {
       case "questions":
         document.title = "Sorğular";

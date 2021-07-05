@@ -96,6 +96,15 @@
       }
     }
   }
+  .guide-more-help {
+    .guide-help-section {
+      padding: 2rem;
+    }
+    .guide-help-section:nth-of-type(1) ul li span svg {
+      width: 75px;
+      height: 75px;
+    }
+  }
 }
 @media only screen and (max-width: 400px) {
   .guide-section {
@@ -106,6 +115,13 @@
         }
       }
     }
+  }
+  .guide-help-section {
+    padding: 1rem;
+  }
+  .guide-help-section:nth-of-type(1) ul li span svg {
+    width: 500px;
+    height: 500px;
   }
 }
 

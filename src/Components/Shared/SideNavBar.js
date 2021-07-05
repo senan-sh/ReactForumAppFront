@@ -61,7 +61,7 @@ export default function SideNavBar({ data: { isNavOpen, setIsNavOpen, activePage
         <Link onClick={() => { setIsNavOpen(false) }} to="/how_to">
           <li className="side-nav-list-element">
             <span className="material-icons">help</span>
-            <span>İstifadə qaydaları</span>
+            <span>Kömək</span>
           </li>
         </Link>
         <hr />

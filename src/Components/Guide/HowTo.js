@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react'
+import MoreHelp from './MoreHelp'
 
-export default function HowTo({data:{setActivePage}}) {
+export default function HowTo({ data: { setActivePage } }) {
 
     useEffect(() => {
         setActivePage("guide")
-      }, [])
+    }, [])
 
     const parentDiv = useRef(null)
     const buttonsDiv = useRef(null)
@@ -41,55 +42,54 @@ export default function HowTo({data:{setActivePage}}) {
     useEffect(pathButtonTypingAnimation, [parentDiv])
 
     return (
-        <div className="guide-page">
+        <div>
+            <div className="guide-page">
                 <div ref={buttonsDiv} className="buttons4guide-section">
                     <button className="active guide-section-btn"  ></button>
                     <button className="guide-section-btn"></button>
                     <button className="guide-section-btn" ></button>
                     <button className="guide-section-btn"></button>
                 </div>
-            <div ref={parentDiv} className="guide-sections-wrapper">
-                <div className="active guide-section">
-                    <div className="guide-section-inner ">
-                        <div className="animating">
-                            <span>1.</span>
-                            <span>Hesab yaradın</span>
-                            <span className="material-icons-outlined">person</span>
+                <div ref={parentDiv} className="guide-sections-wrapper">
+                    <div className="active guide-section">
+                        <div className="guide-section-inner ">
+                            <div className="animating">
+                                <span>1.</span>
+                                <span>Hesab yaradın</span>
+                                <span className="material-icons-outlined">person</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="guide-section">
-                    <div className="guide-section-inner">
-                        <div>
-                            <span>2.</span>
-                            <span>İstifadə qaydaları ilə tanış olun</span>
-                            <span className="material-icons-outlined">library_books</span>
+                    <div className="guide-section">
+                        <div className="guide-section-inner">
+                            <div>
+                                <span>2.</span>
+                                <span>İstifadə qaydaları ilə tanış olun</span>
+                                <span className="material-icons-outlined">library_books</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="guide-section">
-                    <div className="guide-section-inner">
-                        <div>
-                            <span>3.</span>
-                            <span>İstədiyiniz mövzuda sorğu yaradın</span>
-                            <span className="material-icons-outlined">help</span>
+                    <div className="guide-section">
+                        <div className="guide-section-inner">
+                            <div>
+                                <span>3.</span>
+                                <span>İstədiyiniz mövzuda sorğu yaradın</span>
+                                <span className="material-icons-outlined">help</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style={bgStyles.sectionFour} className="guide-section">
-                    <div className="guide-section-inner">
-                        <div>
-                            <span>4.</span>
-                            <span>Kəşf etməyə davam edin</span>
-                            <span className="material-icons-outlined">lightbulb</span>
+                    <div className="guide-section">
+                        <div className="guide-section-inner">
+                            <div>
+                                <span>4.</span>
+                                <span>Kəşf etməyə davam edin</span>
+                                <span className="material-icons-outlined">lightbulb</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <MoreHelp />
         </div>
     )
-}
-const bgStyles = {
-    sectionFour : {
-    }
 }

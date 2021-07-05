@@ -8,7 +8,7 @@ export default function HomeThirdSection() {
   return (
     <div className="home-svg-section">
       <div className="home-svg-wrapper-3">
-        <svg className="home-animating-svg" id="home_svg_3" enableBackground="new 0 0 64 64" height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg">
+        <svg className="home-animating-svg" id="home_svg_3" enableBackground="new 0 0 64 64" height="512" viewBox="0 0 64 64" width="512" >
           <path d="m51.707 8.707-1.414-1.414-3.293 3.293v2.828z" />
           <path d="m23 39c1.654 0 3-1.346 3-3v-10c0-4.962-4.038-9-9-9h-2-3c-4.962 0-9 4.038-9 9v3c0 1.654 1.346 3 3 3h7.5c.827 0 1.5-.673 1.5-1.5s-.673-1.5-1.5-1.5h-8.5v-2h2v-4h12v16h-3v1 18.5c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5v-35.5h2z" />
           <path d="m23 54h27v4h-27z" />
@@ -31,7 +31,7 @@ export default function HomeThirdSection() {
           <path d="m49 40h12v2h-12z" />
         </svg>
       </div>
-      <h1>Digər insanlarla fikirlərini paylaş</h1>
+      <h1>Ən son yeniliklərdən xəbərdar ol</h1>
     </div>
   );
 }

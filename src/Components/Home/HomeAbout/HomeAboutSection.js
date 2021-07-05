@@ -2,7 +2,7 @@ export default function HomeAboutSection() {
   return (
     <div style={backgroundImageFixedStyle} className="home-about-section">
       <div className="home-about-image-wrapper">
-        <div className="backgroundImageFader"></div>
+        <div className="background-image-fader"></div>
         <p>Layihəmizin əsas məqsədi insanlar arasında fikir mübadiləsini inkişaf etdirməkdir.</p>
       </div>
     </div>
